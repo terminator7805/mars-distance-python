@@ -22,7 +22,7 @@ def separationnow(): #gets the current distance from the earth to mars in KM
     loc = EarthLocation.of_site('greenwich') 
     with solar_system_ephemeris.set('builtin'):
         solar_system_ephemeris.set('de440s') 
-        mars = get_body('sun', t, loc) 
+        mars = get_body('mars', t, loc) 
         earth = get_body('earth', t, loc)
     sep = mars.separation_3d(earth).to(u.km)
     return sep
@@ -43,7 +43,7 @@ window = Tk()
 #window.overrideredirect(True)
 window.title('Mars')
 window.iconphoto(False, PhotoImage(file='resources/3D_Mars.png'))
-text1 = Label(text='Prueba')
+text1 = Label(text='Distancia Tierra-Marte')
 text1.pack()
 dbutton = Button(text="Conseguir distancia actual", command=distancebutton)
 dbutton.pack()
