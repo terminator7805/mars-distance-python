@@ -24,7 +24,7 @@ def separationattime(t): #gets the current distance from the earth to mars in KM
     print(type(converttime))
     loc = EarthLocation.of_site('greenwich') 
     with solar_system_ephemeris.set('builtin'):
-        solar_system_ephemeris.set('de440s') 
+        solar_system_ephemeris.set('de440') 
         mars = get_body('mars', converttime, loc) 
         earth = get_body('earth', converttime, loc)
     sep = mars.separation_3d(earth).to(u.km)
