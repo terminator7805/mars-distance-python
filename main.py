@@ -75,7 +75,6 @@ window.title('Mars')
 window.iconphoto(False, PhotoImage(file='resources/3D_Mars.png'))
 
 #Date select
-global timeget
 timeget = StringVar()
 timeget.set('now')
 today = datetime.date.today().strftime("%d/%m/%Y").split('/')
