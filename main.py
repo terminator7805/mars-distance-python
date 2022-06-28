@@ -19,9 +19,7 @@ def set_interval(func, sec): #basic interval function
     return t
 
 def separationattime(t): #gets the current distance from the earth to mars in KM
-    print(type(t))
     converttime = Time(t)
-    print(type(converttime))
     loc = EarthLocation.of_site('greenwich') 
     with solar_system_ephemeris.set('builtin'):
         solar_system_ephemeris.set('de440') 
@@ -35,7 +33,10 @@ def distancebutton(): #Triggers the loop of the distance text, function for dbut
         utc = Time.now()
         timenow = utc + datetime.timedelta(hours=2)
         time = datetime.datetime.strptime(str(timenow), '%Y-%m-%d %H:%M:%S.%f')
-    else: time = datetime.datetime.strptime(timeget.get(), '%Y/%m/%d %H:%M:%S.%f')
+        msg_display.config(text=time.strftime('%d/%m/%Y %H:%M:%S'))
+    else: 
+        time = datetime.datetime.strptime(timeget.get(), '%Y/%m/%d %H:%M:%S.%f')
+        msg_display.config(text=time.strftime('%d/%m/%Y %H:%M:%S'))
     distance = StringVar()
     distance.set(separationattime(time))
     def update():
@@ -43,9 +44,10 @@ def distancebutton(): #Triggers the loop of the distance text, function for dbut
             utc = Time.now()
             timenow = utc + datetime.timedelta(hours=2)
             time = datetime.datetime.strptime(str(timenow), '%Y-%m-%d %H:%M:%S.%f')
-        else: time = datetime.datetime.strptime(timeget.get(), '%Y/%m/%d %H:%M:%S.%f')
-        distance.set(separationattime(time))
-        print(distance.get())
+            msg_display.config(text=time.strftime('%d/%m/%Y %H:%M:%S'))
+        else: 
+            time = datetime.datetime.strptime(timeget.get(), '%Y/%m/%d %H:%M:%S.%f')
+            msg_display.config(text=time.strftime('%d/%m/%Y %H:%M:%S'))
     prueba = Label(textvariable=distance)
     prueba.pack()
     set_interval(update, 1)
@@ -69,39 +71,11 @@ min_string=StringVar()
 last_value_sec = ""
 last_value = ""        
 f = ('Times', 20)
-
-def display_msg():
-    date = cal.get_date()
-    m = min_sb.get()
-    h = sec_hour.get()
-    s = sec.get()
-    if len(h) == 1:
-        h = '0' + h
-    if len(m) == 1:
-        m = '0' + m
-    if len(s) == 1:
-        s = '0' + s
-    timeget.set(f"{datetime.datetime.strptime(date, '%d/%m/%y').strftime('%Y/%m/%d')} {h}:{m}:{s}.0")
-    msg_display.config(text=timeget.get())
-       
-
-
-if last_value == "59" and min_string.get() == "0":
-    hour_string.set(int(hour_string.get())+1 if hour_string.get() !="23" else 0)   
-    last_value = min_string.get()
-
-if last_value_sec == "59" and sec_hour.get() == "0":
-    min_string.set(int(min_string.get())+1 if min_string.get() !="59" else 0)
-if last_value == "59":
-    hour_string.set(int(hour_string.get())+1 if hour_string.get() !="23" else 0)            
-    last_value_sec = sec_hour.get()
-
 fone = Frame(window)
 ftwo = Frame(window)
 
 fone.pack(pady=10)
 ftwo.pack(pady=10)
-
 cal = Calendar(
     fone, 
     selectmode="day", 
@@ -111,7 +85,7 @@ cal = Calendar(
     )
 cal.pack()
 
-min_sb = Spinbox(
+sec_hour = Spinbox(
     ftwo,
     from_=0,
     to=23,
@@ -122,7 +96,7 @@ min_sb = Spinbox(
     font=f,
     justify=CENTER
     )
-sec_hour = Spinbox(
+min_sb = Spinbox(
     ftwo,
     from_=0,
     to=59,
@@ -143,9 +117,34 @@ sec = Spinbox(
     font=f,
     justify=CENTER
     )
+def display_msg():
+    date = cal.get_date()
+    m = min_sb.get()
+    h = sec_hour.get()
+    s = sec.get()
+    if len(h) == 1:
+        h = '0' + h
+    if len(m) == 1:
+        m = '0' + m
+    if len(s) == 1:
+        s = '0' + s
+    timeget.set(f"{datetime.datetime.strptime(date, '%d/%m/%y').strftime('%Y/%m/%d')} {h}:{m}:{s}.0")
+       
 
-min_sb.pack(side=LEFT, fill=X, expand=True)
+
+if last_value == "59" and min_string.get() == "0":
+    hour_string.set(int(hour_string.get())+1 if hour_string.get() !="23" else 0)   
+    last_value = min_string.get()
+
+if last_value_sec == "59" and sec_hour.get() == "0":
+    min_string.set(int(min_string.get())+1 if min_string.get() !="59" else 0)
+if last_value == "59":
+    hour_string.set(int(hour_string.get())+1 if hour_string.get() !="23" else 0)            
+    last_value_sec = sec_hour.get()
+
+
 sec_hour.pack(side=LEFT, fill=X, expand=True)
+min_sb.pack(side=LEFT, fill=X, expand=True)
 sec.pack(side=LEFT, fill=X, expand=True)
 
 
