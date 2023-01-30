@@ -1,0 +1,127 @@
+body {
+  background-image: url("../resources/space.jpg");
+  background-repeat: no-repeat;
+}
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 340px;
+  padding: 10px;
+  background: rgba(31, 31, 31, 0.5);
+  border-radius: 5px;
+}
+
+h1 {
+  color: white;
+  font-family: 'Courier New', Courier, monospace, sans-serif;
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+}
+h2 {
+  color: white;
+  font-family: 'Courier New', Courier, monospace, sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  line-height: 1.1;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+}
+
+/* CSS */
+.button-31 {
+  background-color: #222;
+  border-radius: 4px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin: 6px;
+  max-width: 330px;
+  min-height: 44px;
+  min-width: 10px;
+  outline: none;
+  overflow: hidden;
+  padding: 9px 20px 8px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button-31:hover {
+  opacity: .75;
+}
+
+
+footer {
+  color: white;
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+table {
+  margin-top: 20px;
+  max-width: 330px;
+  background-color: rgba(34, 34, 34, 0.5);
+  font-family: "Farfetch Basis","Helvetica Neue",Arial,sans-serif;
+  font-size: 16px;
+  color: white;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+th, td {
+  border: 2px solid #222;
+  padding: 8px;
+}
+
+
+.form-popup {
+  display: none;
+  position: fixed;
+  height: 40.5%;
+  bottom: 0;
+  top: 25%;
+  right: 14px;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 310px;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 4px;
+}
+
+/* Full-width input fields */
+.form-container input[type=date], .form-container input[type=time]{
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: rgb(66, 66, 66);
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=date]:focus, .form-container input[type=time]:focus {
+  background-color: rgb(22, 22, 22);
+  outline: none;
+}
+

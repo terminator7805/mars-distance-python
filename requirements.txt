@@ -1,4 +1,0 @@
-tkinter
-tkcalendar
-astropy
-jplephem

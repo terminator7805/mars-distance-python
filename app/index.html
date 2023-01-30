@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <script>
+    function openForm() {
+      document.getElementById("myForm").style.display = "block";
+    }
+    
+    function closeForm() {
+      document.getElementById("myForm").style.display = "none";
+    }
+    </script>
+  <body>
+    <script src="./js/renderer.js"></script>
+    <div class="container">
+      <h1>Distancia Tierra-Marte</h1>
+      <button class="button-31" id="live">Tiempo real</button>
+      <button class="button-31" id="date" onclick="openForm()">Seleccionar fecha</button>
+      <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container" id="datef">
+          <button type="button" class="button-31" onclick="closeForm()">Cerrar</button>
+          <input type="date" placeholder="Fecha" name="dateform" id="dateform" required>
+          <input type="time" placeholder="Hora" name="hourform" id="hourform" required>
+          <button type="submit" class="button-31" id="submitdate" onclick="closeForm()">Calcular</button>
+        </form>
+      </div>
+      
+      <button class="button-31" id="close">Salir de la herramienta</button>
+      <center>
+      <table>
+        <tr>
+        <th>KM</th>
+        <th>UA</th>
+        </tr>
+          <tr>
+            <td id="km">Seleccione tiempo</td>
+            <td id="ua">Seleccione tiempo</td>
+          </tr>
+      </table>
+      </center>
+      <img src="./resources/distance.png" alt="DistanciaTierraMarte" id="distance" />
+      <footer id="footer">
+        <center>
+          <p>&#169; 2023 Terminator7805</p>
+        </center>
+      </footer>
+    </div>
+
+  </body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+    />
+    <link href="./css/styles.css" rel="stylesheet" />
+    <title>Mars-Earth Distance</title>
+    <script src="./js/buttons.js"></script>
+  </head>
+</html>

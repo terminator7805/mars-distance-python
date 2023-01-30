@@ -1,0 +1,34 @@
+{
+  "name": "mars-distance-electron",
+  "version": "1.0.0",
+  "description": "Electron app that allows to see the current distance Earth-Mars",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terminator7805/mars-distance-python.git"
+  },
+  "keywords": [
+    "mars",
+    "earth",
+    "distance",
+    "electron"
+  ],
+  "author": "Terminator7805",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/terminator7805/mars-distance-python/issues"
+  },
+  "homepage": "https://github.com/terminator7805/mars-distance-python#readme",
+  "dependencies": {
+    "net": "^1.0.2",
+    "path": "^0.12.7",
+    "python-shell": "^3.0.1"
+  },
+  "devDependencies": {
+    "electron": "^22.1.0"
+  }
+}
